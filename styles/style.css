@@ -82,6 +82,7 @@ a {
   height: 150px;
   width: 356px;
   background-color: #f2cc8f;
+  box-shadow: inset rgb(0 0 0 / 15%) 0 0 0 1px;
 }
 #books-container {
   display: flex;
@@ -97,4 +98,58 @@ a {
   #books-container {
     padding: 0em;
   }
+}
+#addBookModal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  width: 100vw;
+}
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  max-width: 540px;
+  height: 420px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.modal-head {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.modal-head .fa-xmark {
+  position: relative;
+  top: 8px;
+  color: rgb(204, 178, 178);
+  font-size: 22px;
+}
+i:hover {
+  cursor: pointer;
+}
+.separator {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.15);
+  margin: 16px 0;
+  display: block;
+}
+input {
+  width: 100%;
+  height: 33px;
+  padding: 4px;
+  margin-bottom: 15px;
+  font-size: 17px;
+  font-family: "Poppins", serif;
+}
+/* Hiding arrows in number field  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
 }
