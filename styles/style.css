@@ -59,12 +59,14 @@ button {
 }
 footer {
   background-color: #f2cc8f;
-  width: 100vw;
-  position: fixed;
+  width: 100%;
+  position: relative;
+  display: inline-block;
   bottom: 0px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 10px;
 }
 #add-book {
   background-color: #f2cc8f;
@@ -93,6 +95,6 @@ a {
 }
 @media (max-width: 800px) {
   #books-container {
-    padding: 0.2em;
+    padding: 0em;
   }
 }
