@@ -7,6 +7,7 @@ html {
   font-size: 17px;
   font-family: "Poppins", sans-serif;
   color: #3c3744;
+  position: relative;
 }
 body {
   background-color: rgb(238, 233, 209);
@@ -25,11 +26,11 @@ header h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  font-size: 1rem;
 }
 .info-box {
-  border: 1px solid rgb(151, 12, 12);
+  border: 1px solid rgb(187, 133, 133);
   padding: 1rem;
+  border-radius: 0.4rem;
 }
 #desc {
   flex: 2.5 1 350px;
@@ -38,17 +39,55 @@ header h1 {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  flex: 1 1 150px;
 }
 #status button {
   height: 2em;
   width: 8em;
   font-size: 17px;
   flex: 1 1 350px;
+  margin-right: 1em;
+  margin-bottom: 0.4em;
 }
 button {
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+  border: none;
 }
 .bold {
   font-weight: bold;
+}
+footer {
+  background-color: #f2cc8f;
+  width: 100vw;
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#add-book {
+  background-color: #f2cc8f;
+  color: #3c3744;
+}
+#add-book:hover {
+  background-color: #e7bf7f;
+}
+a {
+  text-decoration: none;
+}
+.book {
+  height: 150px;
+  width: 356px;
+  background-color: #f2cc8f;
+}
+#books-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vw;
+  gap: 10px;
+  /* justify-content: center; */
+  margin: 0 auto;
+  padding: 1.5em;
+  gap: 0.9em;
 }
