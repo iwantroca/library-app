@@ -33,13 +33,13 @@ header h1 {
   border-radius: 0.4rem;
 }
 #desc {
-  flex: 2.5 1 350px;
+  flex: 15 1 350px;
 }
 #status {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  flex: 1 1 150px;
+  flex: 1 1 350px;
 }
 #status button {
   height: 2em;
@@ -90,4 +90,9 @@ a {
   margin: 0 auto;
   padding: 1.5em;
   gap: 0.9em;
+}
+@media (max-width: 800px) {
+  #books-container {
+    padding: 0.2em;
+  }
 }
