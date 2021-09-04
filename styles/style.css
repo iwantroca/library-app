@@ -58,12 +58,13 @@ button {
 footer {
   background-color: #f2cc8f;
   width: 100%;
-  position: absolute;
-  display: inline-block;
-  bottom: 0px;
+  height: 36px;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
+  /* display: inline-block; */
+  position: absolute;
+  bottom: 0px;
   margin-top: 10px;
 }
 #add-book {
@@ -94,6 +95,7 @@ a {
 @media (max-width: 800px) {
   footer {
     position: relative;
+    height: 20px;
   }
   #books-container {
     padding: 0em;
@@ -181,6 +183,7 @@ input[type="number"] {
 #submit-btn:hover {
   background-color: rgba(91, 158, 91, 0.438);
 }
+
 .fa-github:hover {
   animation: rotate 1s linear;
 }
