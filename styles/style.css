@@ -7,7 +7,6 @@ html {
   font-size: 17px;
   font-family: "Poppins", sans-serif;
   color: #3c3744;
-  position: relative;
 }
 body {
   background-color: rgb(238, 233, 209);
@@ -59,7 +58,7 @@ button {
 footer {
   background-color: #f2cc8f;
   width: 100%;
-  position: relative;
+  position: absolute;
   display: inline-block;
   bottom: 0px;
   display: flex;
@@ -93,12 +92,15 @@ a {
   gap: 0.9em;
 }
 @media (max-width: 800px) {
+  footer {
+    position: relative;
+  }
   #books-container {
     padding: 0em;
   }
 }
 #addBookModal {
-  display: block;
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -109,9 +111,10 @@ a {
 }
 .modal-content {
   background-color: #f2cc8f;
+  color: rgba(22, 100, 133, 0.787);
   margin: 15% auto;
   max-width: 540px;
-  height: 390px;
+  height: 410px;
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 16px;
@@ -166,4 +169,32 @@ input[type="number"] {
   height: 22px;
   margin-right: 10px;
   cursor: pointer;
+}
+.buttons-holder {
+  display: flex;
+  justify-content: center;
+}
+#submit-btn {
+  padding: 5px;
+  width: 80px;
+}
+#submit-btn:hover {
+  background-color: rgba(91, 158, 91, 0.438);
+}
+.fa-github:hover {
+  animation: rotate 1s linear;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    font-size: 30px;
+  }
+  50% {
+    transform: rotate(180deg);
+    font-size: 30px;
+  }
+  100% {
+    transform: rotate(360deg);
+    font-size: 30px;
+  }
 }
