@@ -92,10 +92,11 @@ a {
   padding: 1.5em;
   gap: 0.9em;
 }
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   footer {
     position: relative;
-    height: 20px;
+    height: 28px;
+    bottom: 0px;
   }
   #books-container {
     padding: 0em;
