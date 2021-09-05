@@ -2,13 +2,11 @@ const addBookBtn = document.querySelector("#add-book");
 const closeBtn = document.querySelector(".fa-xmark");
 const addBookModal = document.querySelector("#addBookModal");
 const submitFormBtn = document.querySelector("#submit-btn");
-const bookTitle = document.querySelector("#book-title");
-const bookAuthor = document.querySelector("#book-author");
-const bookPages = document.querySelector("#book-pages");
 const readCheck = document.querySelector("#read-check");
+const bookInputs = document.querySelectorAll(".book-detail");
+const bookContainer = document.querySelector("#books-container");
 
 let myLibrary = [];
-let book = null;
 
 function Book(name, author, pages, readStatus) {
   this.name = name;
@@ -23,18 +21,38 @@ function makeModalVisible() {
   addBookModal.style.display = "block";
 }
 function submitForm() {
-  if (bookTitle.value && bookAuthor.value && bookPages.value) {
-    book = new Book(
-      bookTitle.value,
-      bookAuthor.value,
-      bookPages.value,
+  if ([...bookInputs].every((field) => field.value)) {
+    let book = new Book(
+      bookInputs[0].value,
+      bookInputs[1].value,
+      bookInputs[2].value,
       readCheck.checked
     );
     myLibrary.push(book);
     makeModalInvisible();
   }
+  clearField();
+}
+function clearField() {
+  [...bookInputs].forEach((x) => (x.value = ""));
+}
+function displayBooks() {
+  myLibrary.forEach((x) => {
+    let div = document.createElement("div");
+    div.classList.add("book");
+    bookContainer.appendChild(div);
+  });
+}
+function clearBookContainer() {
+  while (bookContainer.childElementCount) {
+    bookContainer.firstElementChild.remove();
+  }
 }
 
 addBookBtn.addEventListener("click", makeModalVisible);
 closeBtn.addEventListener("click", makeModalInvisible);
-submitFormBtn.addEventListener("click", submitForm);
+submitFormBtn.addEventListener("click", () => {
+  submitForm();
+  clearBookContainer();
+  displayBooks();
+});
