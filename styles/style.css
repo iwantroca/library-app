@@ -67,7 +67,7 @@ footer {
   align-items: center;
   justify-content: center;
   /* display: inline-block; */
-  position: absolute;
+  position: relative;
   bottom: 0px;
   /* margin-top: 10px; */
   margin-top: auto;
@@ -82,7 +82,7 @@ a {
   text-decoration: none;
 }
 .book {
-  height: 150px;
+  height: 160px;
   width: 356px;
   padding: 10px;
   display: flex;
@@ -90,6 +90,7 @@ a {
   background-color: #f2cc8f;
   box-shadow: inset rgb(0 0 0 / 15%) 0 0 0 1px;
   margin-bottom: 30px;
+  border-radius: 0.2rem;
 }
 #books-container {
   display: flex;
@@ -97,7 +98,8 @@ a {
   width: 80vw;
   /* justify-content: center; */
   margin: 0 auto;
-  padding: 1.5em;
+  /* padding: 1.5em; */
+  padding: 1.9em;
   gap: 0.9em;
 }
 @media (max-width: 950px) {
@@ -227,4 +229,16 @@ input[type="number"] {
 .book span {
   font-style: italic;
   color: rgba(95, 17, 95, 0.822);
+}
+.book-stat {
+  font-size: 15px;
+  font-weight: bold;
+}
+.book-stat span {
+  font-style: normal;
+  font-weight: lighter;
+}
+#book-status {
+  display: flex;
+  gap: 6px;
 }
