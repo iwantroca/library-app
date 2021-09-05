@@ -29,7 +29,6 @@ function submitForm() {
       readCheck.checked
     );
     myLibrary.push(book);
-    makeModalInvisible();
   }
   clearField();
 }
@@ -38,9 +37,28 @@ function clearField() {
 }
 function displayBooks() {
   myLibrary.forEach((x) => {
-    let div = document.createElement("div");
-    div.classList.add("book");
-    bookContainer.appendChild(div);
+    let bookCard = document.createElement("div");
+    let bookHead = document.createElement("div");
+    bookHead.classList.add("book-head");
+    bookCard.classList.add("book");
+    let bookPara = document.createElement("p");
+    bookPara.textContent = "by ";
+    let h2 = document.createElement("h2");
+    let trashIcon = document.createElement("div");
+    let separatorLine = document.createElement("div");
+    separatorLine.classList.add("separator");
+    trashIcon.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
+    h2.textContent = "working";
+    bookHead.appendChild(h2);
+    bookHead.appendChild(trashIcon);
+    bookCard.appendChild(bookHead);
+    bookCard.appendChild(separatorLine);
+    bookContainer.appendChild(bookCard);
+    bookCard.insertBefore(bookPara, separatorLine);
+    let authorSpan = document.createElement("span");
+    authorSpan.textContent = "Hero";
+    console.log(bookPara);
+    bookPara.appendChild(authorSpan);
   });
 }
 function clearBookContainer() {
@@ -53,6 +71,7 @@ addBookBtn.addEventListener("click", makeModalVisible);
 closeBtn.addEventListener("click", makeModalInvisible);
 submitFormBtn.addEventListener("click", () => {
   submitForm();
+  makeModalInvisible();
   clearBookContainer();
   displayBooks();
 });

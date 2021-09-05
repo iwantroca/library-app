@@ -84,6 +84,9 @@ a {
 .book {
   height: 150px;
   width: 356px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
   background-color: #f2cc8f;
   box-shadow: inset rgb(0 0 0 / 15%) 0 0 0 1px;
   margin-bottom: 30px;
@@ -209,4 +212,19 @@ input[type="number"] {
     transform: rotate(360deg);
     font-size: 30px;
   }
+}
+.book-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.book i {
+  color: rgb(126, 77, 77);
+}
+.book h2 {
+  font-family: serif;
+}
+.book span {
+  font-style: italic;
+  color: rgba(95, 17, 95, 0.822);
 }
