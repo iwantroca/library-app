@@ -1,8 +1,11 @@
 const addBookBtn = document.querySelector("#add-book");
 const closeBtn = document.querySelector(".fa-xmark");
 const addBookModal = document.querySelector("#addBookModal");
+const submitFormBtn = document.querySelector("#submit-btn");
+const bookTitle = document.querySelector("#book-title");
 
 let myLibrary = [];
+let book = null;
 
 function Book(name, author, pages) {
   this.name = name;
@@ -15,12 +18,11 @@ function makeModalInvisible() {
 function makeModalVisible() {
   addBookModal.style.display = "block";
 }
-const book1 = new Book("fdk", "fdfdl", 222);
-myLibrary.push(book1);
-console.log(myLibrary);
 
 addBookBtn.addEventListener("click", makeModalVisible);
 closeBtn.addEventListener("click", makeModalInvisible);
-
-// let bookTitle = document.querySelector("#book-title input");
-// function getBookName() {}
+submitFormBtn.addEventListener("click", () => {
+  book = new Book(bookTitle.value, 33, 33);
+  myLibrary.push(book);
+  makeModalInvisible();
+});
