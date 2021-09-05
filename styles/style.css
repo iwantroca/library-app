@@ -10,6 +10,10 @@ html {
 }
 body {
   background-color: rgb(238, 233, 209);
+  /* fix footer */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 header h1 {
   font-size: 4em;
@@ -65,7 +69,8 @@ footer {
   /* display: inline-block; */
   position: absolute;
   bottom: 0px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
+  margin-top: auto;
 }
 #add-book {
   background-color: #f2cc8f;
@@ -81,6 +86,7 @@ a {
   width: 356px;
   background-color: #f2cc8f;
   box-shadow: inset rgb(0 0 0 / 15%) 0 0 0 1px;
+  margin-bottom: 30px;
 }
 #books-container {
   display: flex;
@@ -93,6 +99,7 @@ a {
   gap: 0.9em;
 }
 @media (max-width: 600px) {
+  /* fix footer on mobile */
   footer {
     position: relative;
     height: 28px;
