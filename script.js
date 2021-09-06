@@ -125,6 +125,9 @@ function updateDeleteButton() {
 
 document.addEventListener("click", (e) => {
   if (e.target.classList[1] === "fa-trash") {
-    console.log(getBookIndex(e));
+    let bookCardIndex = getBookIndex(e);
+    myLibrary.splice(bookCardIndex, 1);
+    clearBookContainer();
+    displayBooks();
   }
 });
