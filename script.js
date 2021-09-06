@@ -1,4 +1,5 @@
 const addBookBtn = document.querySelector("#add-book");
+const clearBooksBtn = document.querySelectorAll("#clear-books");
 const closeBtn = document.querySelector(".fa-xmark");
 const addBookModal = document.querySelector("#addBookModal");
 const submitFormBtn = document.querySelector("#submit-btn");
@@ -9,6 +10,7 @@ const bookCounter = document.querySelector("#status");
 
 let myLibrary = [];
 let bookDelBtn = null;
+let statusToggleBtn = null;
 let readBooks = [];
 let unreadBooks = [];
 
@@ -125,6 +127,10 @@ function updateDeleteButton() {
   bookDelBtn = [...document.querySelectorAll(".book-head i")];
   return bookDelBtn;
 }
+function updateToggleButton() {
+  statusToggleBtn = [...document.querySelector(".fa-sync")];
+  return statusToggleBtn;
+}
 function getReadBooks() {
   readBooks = myLibrary.filter((book) => book.readStatus === true);
   return readBooks;
@@ -135,11 +141,41 @@ function updateBookCount() {
     myLibrary.length - readBooks.length;
   bookCounter.children[2].lastElementChild.textContent = myLibrary.length;
 }
+// deleting All books
+function deleteAllBooks() {
+  myLibrary = [];
+  clearBookContainer();
+  bookCounter.children[0].lastElementChild.textContent = 0;
+  bookCounter.children[1].lastElementChild.textContent = 0;
+  bookCounter.children[2].lastElementChild.textContent = 0;
+}
+[...clearBooksBtn][0].addEventListener("click", deleteAllBooks);
+//
 
 document.addEventListener("click", (e) => {
   if (e.target.classList[1] === "fa-trash") {
     let bookCardIndex = getBookIndex(e);
     myLibrary.splice(bookCardIndex, 1);
+    clearBookContainer();
+    displayBooks();
+  }
+});
+
+// Todo
+// 1. add toggle button to change status
+// 2. add modal to confirm delete all books
+// 3. refactor the code
+document.addEventListener("click", (e) => {
+  if (e.target.classList[1] === "fa-sync") {
+    let bookCardIndex = getBookIndex(e);
+    switch (myLibrary[bookCardIndex].readStatus) {
+      case true:
+        myLibrary[bookCardIndex].readStatus = false;
+        break;
+      case false:
+        myLibrary[bookCardIndex].readStatus = true;
+        break;
+    }
     clearBookContainer();
     displayBooks();
   }
