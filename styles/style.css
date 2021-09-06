@@ -96,7 +96,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   width: 80vw;
-  /* justify-content: center; */
+  justify-content: center;
   margin: 0 auto;
   /* padding: 1.5em; */
   padding: 1.9em;
