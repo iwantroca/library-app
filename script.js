@@ -5,9 +5,12 @@ const submitFormBtn = document.querySelector("#submit-btn");
 const readCheck = document.querySelector("#read-check");
 const bookInputs = document.querySelectorAll(".book-detail");
 const bookContainer = document.querySelector("#books-container");
+const bookCounter = document.querySelector("#status");
 
 let myLibrary = [];
 let bookDelBtn = null;
+let readBooks = [];
+let unreadBooks = [];
 
 function Book(name, author, pages, readStatus) {
   this.name = name;
@@ -60,11 +63,6 @@ function displayBooks() {
     bookContainer.appendChild(bookCard);
     bookCard.insertBefore(bookPara, separatorLine);
 
-    // here iS the book Del button I am having trouble with
-    // bookDelBtn = document.querySelectorAll(".book-head i");
-    // console.log(bookDelBtn);
-    //
-
     let authorSpan = document.createElement("span");
     authorSpan.textContent = `${book.author}`;
     bookPara.appendChild(authorSpan);
@@ -92,6 +90,8 @@ function displayBooks() {
     bookStatus.appendChild(syncIcon);
 
     updateDeleteButton();
+    getReadBooks();
+    updateBookCount();
   });
 }
 function clearBookContainer() {
@@ -110,7 +110,10 @@ function getBookIndex(e) {
 }
 
 addBookBtn.addEventListener("click", makeModalVisible);
-closeBtn.addEventListener("click", makeModalInvisible);
+closeBtn.addEventListener("click", () => {
+  makeModalInvisible();
+  clearField();
+});
 submitFormBtn.addEventListener("click", () => {
   submitForm();
   makeModalInvisible();
@@ -121,6 +124,16 @@ submitFormBtn.addEventListener("click", () => {
 function updateDeleteButton() {
   bookDelBtn = [...document.querySelectorAll(".book-head i")];
   return bookDelBtn;
+}
+function getReadBooks() {
+  readBooks = myLibrary.filter((book) => book.readStatus === true);
+  return readBooks;
+}
+function updateBookCount() {
+  bookCounter.children[0].lastElementChild.textContent = readBooks.length;
+  bookCounter.children[1].lastElementChild.textContent =
+    myLibrary.length - readBooks.length;
+  bookCounter.children[2].lastElementChild.textContent = myLibrary.length;
 }
 
 document.addEventListener("click", (e) => {
