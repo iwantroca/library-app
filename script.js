@@ -8,7 +8,6 @@ const bookContainer = document.querySelector("#books-container");
 
 let myLibrary = [];
 let bookDelBtn = null;
-let bookIndex = null;
 
 function Book(name, author, pages, readStatus) {
   this.name = name;
@@ -62,8 +61,8 @@ function displayBooks() {
     bookCard.insertBefore(bookPara, separatorLine);
 
     // here iS the book Del button I am having trouble with
-    bookDelBtn = document.querySelectorAll(".book-head i");
-    console.log(bookDelBtn);
+    // bookDelBtn = document.querySelectorAll(".book-head i");
+    // console.log(bookDelBtn);
     //
 
     let authorSpan = document.createElement("span");
@@ -92,7 +91,7 @@ function displayBooks() {
     syncIcon.innerHTML = '<i class="fas fa-sync"></i>';
     bookStatus.appendChild(syncIcon);
 
-    removeBookCard();
+    updateDeleteButton();
   });
 }
 function clearBookContainer() {
@@ -100,10 +99,14 @@ function clearBookContainer() {
     bookContainer.firstElementChild.remove();
   }
 }
-
 function deleteBook(arr, index) {
   myLibrary.splice(index, 1);
   return myLibrary;
+}
+function getBookIndex(e) {
+  let bookCardIndex =
+    e.target.parentElement.parentElement.parentElement.dataset.index;
+  return bookCardIndex;
 }
 
 addBookBtn.addEventListener("click", makeModalVisible);
@@ -115,20 +118,13 @@ submitFormBtn.addEventListener("click", () => {
   displayBooks();
 });
 
-function removeBookCard() {
-  [...bookDelBtn].forEach((btn) =>
-    btn.addEventListener("click", (e) => {
-      console.log("hi");
-      getBookIndex(e);
-      console.log("index :  " + bookIndex);
-      deleteBook(myLibrary, bookIndex);
-      clearBookContainer();
-      displayBooks();
-    })
-  );
+function updateDeleteButton() {
+  bookDelBtn = [...document.querySelectorAll(".book-head i")];
+  return bookDelBtn;
 }
 
-function getBookIndex(e) {
-  bookIndex = e.target.parentElement.parentElement.parentElement.dataset.index;
-  return bookIndex;
-}
+document.addEventListener("click", (e) => {
+  if (e.target.classList[1] === "fa-trash") {
+    console.log(getBookIndex(e));
+  }
+});
