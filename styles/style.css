@@ -102,19 +102,7 @@ a {
   padding: 1.9em;
   gap: 0.9em;
 }
-@media (max-width: 950px) {
-  /* fix footer on mobile */
-  footer {
-    position: relative;
-    height: 28px;
-    /* bottom: 0px; */
-  }
-}
-@media (max-width: 600px) {
-  #books-container {
-    padding: 0em;
-  }
-}
+
 #addBookModal {
   display: none;
   position: fixed;
@@ -131,9 +119,26 @@ a {
   margin: 15% auto;
   max-width: 540px;
   height: 410px;
-  padding: 10px;
+  padding: 15px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 16px;
+  border-radius: 5px;
+}
+@media (max-width: 950px) {
+  /* fix footer on mobile */
+  footer {
+    position: relative;
+    height: 28px;
+    /* bottom: 0px; */
+  }
+  #addBookModal {
+    padding: 0 20px;
+  }
+}
+@media (max-width: 600px) {
+  #books-container {
+    padding: 0em;
+  }
 }
 .modal-head {
   display: flex;
@@ -241,4 +246,8 @@ input[type="number"] {
 #book-status {
   display: flex;
   gap: 6px;
+}
+.required {
+  display: none;
+  color: red;
 }

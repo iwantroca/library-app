@@ -7,6 +7,7 @@ const readCheck = document.querySelector("#read-check");
 const bookInputs = document.querySelectorAll(".book-detail");
 const bookContainer = document.querySelector("#books-container");
 const bookCounter = document.querySelector("#status");
+const required = document.querySelectorAll(".required");
 
 let myLibrary = [];
 let bookDelBtn = null;
@@ -35,8 +36,13 @@ function submitForm() {
       readCheck.checked
     );
     myLibrary.push(book);
+    makeModalInvisible();
+    [...required].forEach((x) => (x.style.display = "none"));
+    clearField();
+  } else {
+    [...required].forEach((x) => (x.style.display = "inline"));
   }
-  clearField();
+  // clearField();
 }
 function clearField() {
   [...bookInputs].forEach((x) => (x.value = ""));
@@ -118,7 +124,7 @@ closeBtn.addEventListener("click", () => {
 });
 submitFormBtn.addEventListener("click", () => {
   submitForm();
-  makeModalInvisible();
+  // makeModalInvisible();
   clearBookContainer();
   displayBooks();
 });
@@ -162,9 +168,10 @@ document.addEventListener("click", (e) => {
 });
 
 // Todo
-// 1. add toggle button to change status
+//~~ 1. add required filled when left incomplete~~
 // 2. add modal to confirm delete all books
 // 3. refactor the code
+// 4. add local storage
 document.addEventListener("click", (e) => {
   if (e.target.classList[1] === "fa-sync") {
     let bookCardIndex = getBookIndex(e);

@@ -61,16 +61,22 @@
         <div class="separator"></div>
         <form id="add-book-form" name="id-book-form">
           <div>
-            <label for="book-title">Book Title <br /></label>
-            <input class="book-detail" id="book-title" type="text" />
+            <label for="book-title"
+              >Book Title <span class="required">*</span><br
+            /></label>
+            <input class="book-detail" id="book-title" required type="text" />
           </div>
           <div>
-            <label for="book-author">Book Author <br /></label>
-            <input class="book-detail" id="book-author" type="text" />
+            <label for="book-author"
+              >Book Author <span class="required">*</span><br
+            /></label>
+            <input class="book-detail" id="book-author" required type="text" />
           </div>
           <div>
-            <label for="book-pages">Number of pages <br /></label>
-            <input class="book-detail" id="book-pages" type="number" />
+            <label for="book-pages"
+              >Number of pages <span class="required">*</span><br
+            /></label>
+            <input class="book-detail" id="book-pages" required type="number" />
           </div>
           <div class="read-container">
             <input id="read-check" type="checkbox" checked="checked" />
@@ -80,7 +86,7 @@
           </div>
           <div class="separator"></div>
           <div class="buttons-holder">
-            <button id="submit-btn" type="button">Submit</button>
+            <button id="submit-btn" type="submit">Submit</button>
           </div>
         </form>
       </div>
