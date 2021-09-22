@@ -15,6 +15,15 @@ let statusToggleBtn = null;
 let readBooks = [];
 let unreadBooks = [];
 
+// getting from local storage
+if (localStorage.getItem("bookStorage") === null) {
+  myLibrary = [];
+} else {
+  const booksFromStorage = JSON.parse(localStorage.getItem("bookStorage"));
+  myLibrary = booksFromStorage;
+}
+displayBooks();
+
 function Book(name, author, pages, readStatus) {
   this.name = name;
   this.author = author;
@@ -100,6 +109,9 @@ function displayBooks() {
     updateDeleteButton();
     getReadBooks();
     updateBookCount();
+
+    // set storage
+    window.localStorage.setItem("bookStorage", JSON.stringify(myLibrary));
   });
 }
 function clearBookContainer() {
@@ -151,6 +163,7 @@ function updateBookCount() {
 function deleteAllBooks() {
   myLibrary = [];
   clearBookContainer();
+  window.localStorage.setItem("bookStorage", JSON.stringify(myLibrary));
   bookCounter.children[0].lastElementChild.textContent = 0;
   bookCounter.children[1].lastElementChild.textContent = 0;
   bookCounter.children[2].lastElementChild.textContent = 0;
