@@ -164,6 +164,7 @@ function deleteAllBooks() {
   myLibrary = [];
   clearBookContainer();
   window.localStorage.setItem("bookStorage", JSON.stringify(myLibrary));
+  myLibrary = null;
   bookCounter.children[0].lastElementChild.textContent = 0;
   bookCounter.children[1].lastElementChild.textContent = 0;
   bookCounter.children[2].lastElementChild.textContent = 0;
@@ -177,6 +178,9 @@ document.addEventListener("click", (e) => {
     myLibrary.splice(bookCardIndex, 1);
     clearBookContainer();
     displayBooks();
+    getReadBooks();
+    updateBookCount();
+    window.localStorage.setItem("bookStorage", JSON.stringify(myLibrary));
   }
 });
 
